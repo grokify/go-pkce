@@ -59,9 +59,9 @@ func main() {
 
   // Create authorization_code URL using `oauth2.Config`
   authURL := oauth2Config.AuthCodeURL(
-  "myState",
-  oauth2.SetAuthURLParam(pkce.ParamCodeChallenge, codeChallenge),
-  oauth2.SetAuthURLParam(pkce.ParamCodeChallengeMethod, pkce.MethodS256))
+    "myState",
+    oauth2.SetAuthURLParam(pkce.ParamCodeChallenge, codeChallenge),
+    oauth2.SetAuthURLParam(pkce.ParamCodeChallengeMethod, pkce.MethodS256))
 }
 ```
 
