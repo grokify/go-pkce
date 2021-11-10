@@ -46,6 +46,8 @@ func main() {
 
 ```go
 import(
+  "context"
+
   "github.com/grokify/go-pkce"
   "golang.org/x/oauth2"
 )
@@ -62,6 +64,15 @@ func main() {
     "myState",
     oauth2.SetAuthURLParam(pkce.ParamCodeChallenge, codeChallenge),
     oauth2.SetAuthURLParam(pkce.ParamCodeChallengeMethod, pkce.MethodS256))
+
+  // ... retrieve authorization_code ...
+
+  // Exchange the authorization_code for a token with PKCE.
+  token, err := oauth2Config.Exchange(
+    context.Background(),
+    "myCode",
+    oauth2.SetAuthURLParam(pkce.ParamCodeVerifier, codeVerifier),
+  )
 }
 ```
 
