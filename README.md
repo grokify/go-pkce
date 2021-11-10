@@ -57,10 +57,10 @@ import(
 
 func main() {
   // Create a code_verifier with default 32 byte length.
-  codeVerifier := NewCodeVerifier()
+  codeVerifier := pkce.NewCodeVerifier()
 
   // Create a code_challenge using `S256`
-  codeChallenge := CodeChallengeS256(codeVerifier)
+  codeChallenge := pkce.CodeChallengeS256(codeVerifier)
 
   // Create authorization_code URL using `oauth2.Config`
   authURL := oauth2Config.AuthCodeURL(
