@@ -14,4 +14,13 @@
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-url]: https://github.com/grokify/go-pkce/blob/master/LICENSE
 
-Go library to support [PKCE, IETF RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636).
+go-pkce package contains an implementation for OAuth 2.0 PKCE spec, [IETF RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636).
+
+## Installation
+
+```
+go get github.com/grokify/go-pkce
+```
+
+Or you can manually git clone the repository to
+`$(go env GOPATH)/src/github.com/grokify/go-pkce`.
