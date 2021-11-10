@@ -30,10 +30,7 @@ func NewCodeVerifierWithLength(n int) (string, error) {
 		return "", fmt.Errorf("invalid length: %v", n)
 	}
 	b := make([]byte, n)
-	_, err := rand.Read(b)
-	if err != nil {
-		return "", err
-	}
+	rand.Read(b)
 	return NewCodeVerifierFromBytes(b), nil
 }
 
