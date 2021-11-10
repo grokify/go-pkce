@@ -45,7 +45,7 @@ codeChallenge := CodeChallengeS256(codeVerifier)
 ```go
 import(
     "github.com/grokify/go-pkce"
-    "golang.org/x/oauth2
+    "golang.org/x/oauth2"
 )
 
 // Create a code_verifier with default 32 byte length.
