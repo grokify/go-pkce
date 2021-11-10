@@ -30,33 +30,37 @@ Or you can manually git clone the repository to
 ```go
 import("github.com/grokify/go-pkce")
 
-// Create a code_verifier with default 32 byte length.
-codeVerifier := NewCodeVerifier()
+func main() {
+  // Create a code_verifier with default 32 byte length.
+  codeVerifier := pkce.NewCodeVerifier()
 
-// Create a code_verifier with a custom length (32-96 bytes)
-codeVerifier, err := NewCodeVerifierWithLength(96)
+  // Create a code_verifier with a custom length (32-96 bytes)
+  codeVerifier, err := pkce.NewCodeVerifierWithLength(96)
 
-// Create a code_challenge using `S256`
-codeChallenge := CodeChallengeS256(codeVerifier)
+  // Create a code_challenge using `S256`
+  codeChallenge := pkce.CodeChallengeS256(codeVerifier)
+}
 ```
 
 ## Usage with `oauth2`
 
 ```go
 import(
-    "github.com/grokify/go-pkce"
-    "golang.org/x/oauth2"
+  "github.com/grokify/go-pkce"
+  "golang.org/x/oauth2"
 )
 
-// Create a code_verifier with default 32 byte length.
-codeVerifier := NewCodeVerifier()
+func main() {
+  // Create a code_verifier with default 32 byte length.
+  codeVerifier := NewCodeVerifier()
 
-// Create a code_challenge using `S256`
-codeChallenge := CodeChallengeS256(codeVerifier)
+  // Create a code_challenge using `S256`
+  codeChallenge := CodeChallengeS256(codeVerifier)
 
-// Create authorization_code URL using `oauth2.Config`
-authURL := oauth2Config.AuthCodeURL(
-    "myState",
-    oauth2.SetAuthURLParam(pkce.ParamCodeChallenge, codeChallenge),
-    oauth2.SetAuthURLParam(pkce.ParamCodeChallengeMethod, pkce.MethodS256))
+  // Create authorization_code URL using `oauth2.Config`
+  authURL := oauth2Config.AuthCodeURL(
+  "myState",
+  oauth2.SetAuthURLParam(pkce.ParamCodeChallenge, codeChallenge),
+  oauth2.SetAuthURLParam(pkce.ParamCodeChallengeMethod, pkce.MethodS256))
+}
 ```
