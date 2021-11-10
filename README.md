@@ -2,6 +2,7 @@
 
 [![Build Status][build-status-svg]][build-status-url]
 [![Go Report Card][goreport-svg]][goreport-url]
+[![Code Coverage][codecov-svg]][codecov-url]
 [![Docs][docs-godoc-svg]][docs-godoc-url]
 [![License][license-svg]][license-url]
 
@@ -9,6 +10,8 @@
  [build-status-url]: https://github.com/grokify/go-pkce/actions
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-pkce
  [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-pkce
+ [codecov-svg]: https://codecov.io/gh/grokify/go-pkce/branch/master/graph/badge.svg
+ [codecov-url]: https://codecov.io/gh/grokify/go-pkce
  [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-pkce
  [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/go-pkce
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
