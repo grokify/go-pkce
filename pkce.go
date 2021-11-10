@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	DefaultLength = 32
-	MinLength     = 32
-	MaxLength     = 96
+	LengthDefault = 32
+	LengthMin     = 32
+	LengthMax     = 96
 
 	MethodPlain = "plain"
 	MethodS256  = "S256"
@@ -21,7 +21,7 @@ const (
 )
 
 func NewCodeVerifier() string {
-	v, err := NewCodeVerifierWithLength(DefaultLength)
+	v, err := NewCodeVerifierWithLength(LengthDefault)
 	if err != nil {
 		panic(err)
 	}
@@ -29,7 +29,7 @@ func NewCodeVerifier() string {
 }
 
 func NewCodeVerifierWithLength(n int) (string, error) {
-	if n < MinLength || n > MaxLength {
+	if n < LengthMin || n > LengthMax {
 		return "", fmt.Errorf("invalid length: %v", n)
 	}
 	b := make([]byte, n)
