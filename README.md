@@ -67,4 +67,4 @@ func main() {
 
 ## Similar projects
 
-* [`github.com/nirasan/go-oauth-pkce-code-verifier`](https://github.com/nirasan/go-oauth-pkce-code-verifier): appears to be abandoned (last update Aug 19, 2017, > 4 years ago), uses `math/rand` vs. `crypto/rand`, no Go Modules support, more complicated than necessary.
+* [`github.com/nirasan/go-oauth-pkce-code-verifier`](https://github.com/nirasan/go-oauth-pkce-code-verifier): appears to be abandoned (last update Aug 19, 2017, 4+ years ago), uses `math/rand` vs. `crypto/rand`, no Go Modules support, no CI/CD, more complicated than necessary.
