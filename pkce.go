@@ -21,10 +21,7 @@ const (
 )
 
 func NewCodeVerifier() string {
-	v, err := NewCodeVerifierWithLength(LengthDefault)
-	if err != nil {
-		panic(err)
-	}
+	v, _ := NewCodeVerifierWithLength(LengthDefault)
 	return v
 }
 
