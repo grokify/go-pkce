@@ -27,7 +27,7 @@ Or you can manually git clone the repository to
 
 ## Usage
 
-```
+```go
 import("github.com/grokify/go-pkce")
 
 // Create a code_verifier with default 32 byte length.
@@ -42,7 +42,7 @@ codeChallenge := CodeChallengeS256(codeVerifier)
 
 ## Usage with `oauth2`
 
-```
+```go
 import(
     "github.com/grokify/go-pkce"
     "golang.org/x/oauth2
