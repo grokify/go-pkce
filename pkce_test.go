@@ -37,10 +37,10 @@ func TestVerifierLength(t *testing.T) {
 	rx := regexp.MustCompile(`^[0-9A-Za-z_-]*$`)
 	for _, tt := range verifierTests {
 		cv, err := NewCodeVerifierWithLength(tt.len)
+		if err != nil && tt.isErr {
+			continue
+		}
 		if err != nil {
-			if tt.isErr {
-				continue
-			}
 			t.Errorf("invalid result for NewCodeVerifierWithLength(%d) error [%s]",
 				tt.len, err.Error())
 		}
