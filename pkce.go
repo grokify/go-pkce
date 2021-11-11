@@ -20,12 +20,10 @@ const (
 	ParamCodeChallengeMethod = "code_challenge_method"
 )
 
-func NewCodeVerifier() string {
-	v, _ := NewCodeVerifierWithLength(LengthDefault)
-	return v
-}
-
-func NewCodeVerifierWithLength(n int) (string, error) {
+func NewCodeVerifier(n int) (string, error) {
+	if n < 0 {
+		n = LengthDefault
+	}
 	if n < LengthMin || n > LengthMax {
 		return "", fmt.Errorf("invalid length: %v", n)
 	}
@@ -33,10 +31,10 @@ func NewCodeVerifierWithLength(n int) (string, error) {
 	if _, err := rand.Read(b); err != nil {
 		return "", err
 	}
-	return NewCodeVerifierFromBytes(b), nil
+	return NewCodeVerifierBytes(b), nil
 }
 
-func NewCodeVerifierFromBytes(b []byte) string {
+func NewCodeVerifierBytes(b []byte) string {
 	return base64.RawURLEncoding.EncodeToString(b)
 }
 

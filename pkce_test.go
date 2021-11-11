@@ -8,7 +8,10 @@ import (
 
 func TestVerifier(t *testing.T) {
 	rx := regexp.MustCompile(`^[0-9A-Za-z_-]*$`)
-	cv := NewCodeVerifier()
+	cv, err := NewCodeVerifier(-1)
+	if err != nil {
+		t.Errorf("error result for NewCodeVerifier(-1) err [%s]", err.Error())
+	}
 
 	if !rx.MatchString(cv) {
 		t.Errorf("invalid result for NewCodeVerifier() got [%s]", cv)
@@ -36,23 +39,23 @@ var verifierTests = []struct {
 func TestVerifierLength(t *testing.T) {
 	rx := regexp.MustCompile(`^[0-9A-Za-z_-]*$`)
 	for _, tt := range verifierTests {
-		cv, err := NewCodeVerifierWithLength(tt.len)
+		cv, err := NewCodeVerifier(tt.len)
 		if err != nil && tt.isErr {
 			continue
 		}
 		if err != nil {
-			t.Errorf("invalid result for NewCodeVerifierWithLength(%d) error [%s]",
+			t.Errorf("invalid result for NewCodeVerifier(%d) error [%s]",
 				tt.len, err.Error())
 		}
 		if !rx.MatchString(cv) {
-			t.Errorf("invalid result for NewCodeVerifierWithLength(%d) got [%s]", tt.len, cv)
+			t.Errorf("invalid result for NewCodeVerifier(%d) got [%s]", tt.len, cv)
 		}
 		cvDec, err := base64.RawURLEncoding.DecodeString(cv)
 		if err != nil {
 			t.Errorf("error result for b64.RawURLEncoding.DecodeString(\"%s\") err [%s]", cv, err.Error())
 		}
 		if len(cvDec) != tt.len {
-			t.Errorf("invalid length for NewCodeVerifierWithLength(%d) want [%d], got [%d][%s]",
+			t.Errorf("invalid length for NewCodeVerifier(%d) want [%d], got [%d][%s]",
 				tt.len, tt.len, len(cvDec), cv)
 		}
 	}
@@ -74,9 +77,9 @@ var challengeTests = []struct {
 // TestChallenge tests code verifier and code challenge functions.
 func TestChallenge(t *testing.T) {
 	for _, tt := range challengeTests {
-		cv := NewCodeVerifierFromBytes(tt.verifierBytes)
+		cv := NewCodeVerifierBytes(tt.verifierBytes)
 		if cv != tt.verifierString {
-			t.Errorf("invalid result for NewCodeVerifierFromBytes want [%s], got [%s]",
+			t.Errorf("invalid result for NewCodeVerifierBytes want [%s], got [%s]",
 				tt.verifierString, cv)
 		}
 		ccS256 := CodeChallengeS256(cv)
