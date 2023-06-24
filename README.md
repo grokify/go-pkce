@@ -35,7 +35,7 @@ import("github.com/grokify/go-pkce")
 
 func main() {
   // Create a code_verifier with default 32 byte length.
-  codeVerifier := pkce.NewCodeVerifier()
+  codeVerifier := pkce.NewCodeVerifier(-1)
 
   // Create a code_verifier with a custom length (32-96 bytes)
   codeVerifier, err := pkce.NewCodeVerifierWithLength(96)
