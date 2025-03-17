@@ -1,13 +1,16 @@
 # PKCE for Go
 
-[![Build Status][build-status-svg]][build-status-url]
+[![CI Status][build-status-svg]][build-status-url]
+[![Lint Status][lint-status-svg]][lint-status-url]
 [![Go Report Card][goreport-svg]][goreport-url]
 [![Code Coverage][codecov-svg]][codecov-url]
 [![Docs][docs-godoc-svg]][docs-godoc-url]
 [![License][license-svg]][license-url]
 
- [build-status-svg]: https://github.com/grokify/go-pkce/workflows/build/badge.svg
- [build-status-url]: https://github.com/grokify/go-pkce/actions
+ [build-status-svg]: https://github.com/grokify/go-pkce/actions/workflows/ci.yaml/badge.svg?branch=master
+ [build-status-url]: https://github.com/grokify/go-pkce/actions/workflows/ci.yaml
+ [lint-status-svg]: https://github.com/grokify/go-pkce/actions/workflows/lint.yaml/badge.svg?branch=master
+ [lint-status-url]: https://github.com/grokify/go-pkce/actions/workflows/lint.yaml
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-pkce
  [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-pkce
  [codecov-svg]: https://codecov.io/gh/grokify/go-pkce/branch/master/graph/badge.svg
